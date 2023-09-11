@@ -9,9 +9,6 @@ def main():
         actual = total + t[1]
         if actual > longest:
             longest = actual
-    if total > longest:
-        print("It took: " , total , "hs")
-    else:
-        print("It took: " , longest , "hs")
+    print("It took: " , longest , "hs")
 
 main()
