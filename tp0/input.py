@@ -18,5 +18,5 @@ def ReadInputs():
             sI, aI = int(params[0]), int(params[1])
             res.append((sI, aI))
 
-    resSort = sorted(res , key = lambda item:item[1] , reverse=True)  #Es legal usar el ordenamiento de python?? porque si es un lenguaje serio deberia ser O(n.log(n))
+    resSort = sorted(res , key = lambda item: 1/item[1])
     return resSort
