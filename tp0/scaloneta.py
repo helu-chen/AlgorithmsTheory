@@ -1,4 +1,3 @@
-
 import input
 
 def main():
