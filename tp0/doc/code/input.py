@@ -2,7 +2,7 @@ import sys
 
 def ReadInputs():
     """
-    It process the file passed as parameter in the Command Line, and return a list of tuples with the elements of (sI, aI).
+    It process the file passed as parameter in the Command Line, and return a list of tuples sorted by the second element.
     """
     args = sys.argv
     if len(args) != 2:
@@ -18,4 +18,5 @@ def ReadInputs():
             sI, aI = int(params[0]), int(params[1])
             res.append((sI, aI))
 
-    return res
+    resSort = sorted(res , key = lambda item:item[1] , reverse=True)  #Es legal usar el ordenamiento de python?? porque si es un lenguaje serio deberia ser O(n.log(n))
+    return resSort

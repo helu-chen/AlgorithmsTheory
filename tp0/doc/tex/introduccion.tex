@@ -1,0 +1,16 @@
+\section{Introduccion}
+
+El problema que se nos plantea es que el tiempo total para poder analizar todos los siguientes \textbf{\textit {n}} rivales del \textbf{CAMPEON DEL MUNDO} sea el mas optimo. A su vez, se solicita que sea hallado con un algoritmo Greedy. Para tener en mente, los algoritmos Greedy siguen una regla sencilla que les permiten obtener un \textit{optimo local} segun el estado actual del programa, y poder llegar a un \textit{optimo general} juntando los locales. Pero como todo, pueden tener sus ventajas y desventajas, como por ejemplo que no siempre dan el resultado optimo, o que demostrar que el resultado es optimo es dificil. Por otro lado, son intuitivos de pensar y facil de entender, y suelen ser rapidos. Lo que en reglas generales suele indicar que el algoritmo es Greedy es el uso de colas de prioridad como el \textit{heap} u ordenamientos (recalcar que un algoritmo puede hacer uso de heaps u ordenamientos y no ser Greedy).
+
+Dicho esto, nos empezamos a plantear posibles soluciones para el problema. Lo primero que se nos vino a la idea es hacer uso de algun tipo de ordenamiento, ya sea ordenando por los tiempos de Scaloni o los ayudantes, en relacion a cuanto tardarian cada uno. Lo que nos ayudo a volcarnos por el lado de ordenar por los tiempos de los ayudantes fue el siguiente:
+\begin{itemize}
+    \item El tiempo total que tarda Scaloni siempre va a ser el mismo, no importa como ordenemos los videos a ver. Bien como se dice, \textit{"El orden de los factores no altera el producto"}.
+    \item Por mas que Scaloni termine de ver el ultimo video del ultimo rival, va a quedar que despues un ayudante analice el video, por lo que es mas importante el tiempo que va a tardar este ultimo ayudante que el que va a tardar Scaloni. 
+\end{itemize}
+
+Ahora bien, ya tenemos definido por donde queremos encarar el problema, pero todavia falta definir en que orden queremos que los videos se visualicen dependiendo de los ayudantes, si los mas rapidos primero o viceversa. Aca entra en juego un factor muy importante a tener en cuenta: \textbf{los ayudantes analizan los videos inmediatamente termina Scaloni de ver el video, y el analisis de cada ayudante es independiente a los otros}. Esto quiere decir que si Scaloni termino un video, inmeditamanete uno de los ayudante se pondra a analizarlo. Y si Scaloni termina otro video, otro ayudante podra empezar a analizar ese video, no importa si el anterior termino de realizar su analisis o no. Esto nos ha llevado a tomar la decision de ordenar por el tiempo de los ayudantes del que mas tarde al que menos, por los siguientes puntos:
+\begin{itemize}
+    \item Los ayudantes pueden analizar un video independientemente de si el anterior haya terminado o no su analisis.
+    \item Si para el ultimo video queda el ayudante que mas tarda, el tiempo total no seria el optimo sino todo lo contrario, ya que se tardaria el tiempo total de Scaloni mas lo que tarde este ultimo.
+    \item Por ese motivo, conviene que los ayudantes que mas tarden esten al principio, ya que tienen tiempo hasta que Scaloni termine todos los videos para terminar. Y los ayudantes que menos tarden, estaran al final, de modo que si Scaloni termina, los que les falten sabemos que son los mas rapidos y terminaran lo antes posible.
+\end{itemize}
