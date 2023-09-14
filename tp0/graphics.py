@@ -24,13 +24,16 @@ def getGraph():
         dt = end - start
         times.append(dt)
 
+
     fig, ax = plt.subplots()
-    ax.plot(AX, times)
+    ax.plot(AX, times, label= 'Greedy Algorithm')
     ax.set(xlabel='quantity of videos', ylabel='time(s)', title='Complexity of the algorithm')
     ax.grid()
     
     fig.savefig('graphic.png')
+    plt.legend()
     plt.show()
 
 
 getGraph()
+
