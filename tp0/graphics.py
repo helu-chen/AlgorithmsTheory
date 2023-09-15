@@ -22,12 +22,12 @@ def getGraph():
         scaloneta.main(tests[i])
         end = time()
         dt = end - start
-        times.append(dt)
+        times.append(dt*100)
 
 
     fig, ax = plt.subplots()
     ax.plot(AX, times, label= 'Greedy Algorithm')
-    ax.set(xlabel='quantity of videos', ylabel='time(s)', title='Complexity of the algorithm')
+    ax.set(xlabel='quantity of videos [n]', ylabel='time [ms]', title='Complexity of the algorithm')
     ax.grid()
     
     fig.savefig('graphic.png')
